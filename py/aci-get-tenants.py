@@ -53,14 +53,21 @@ s_out = tenants.json()
 # Let's get all our tenants now.
 # Start with an empty list.
 tenant_list = []
+count = 0
+
 
 tn_out_list = s_out['imdata']
 for tenant in tn_out_list:
     # print(tenant)
     dn = tenant['fvTenant']['attributes']['dn']
     split_dn = dn.split("/")
+    count = count + 1
     tenant_list.append(split_dn[1])
     
-print("Tenants: ")
-[print(t) for t in tenant_list]
+print("\nTenants: ")
+print('==========')
+[print(t[3:]) for t in tenant_list]
+print('==========')
+
+print('\nThere are', count, 'Tenants')
 
