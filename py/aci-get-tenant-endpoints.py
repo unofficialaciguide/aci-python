@@ -124,9 +124,9 @@ df_input = list(tn_ep_list)
 df = pd.DataFrame(df_input, columns=("Tenant","AP","EPG","Endpoint","IP","MAC Addy","Encap"))
 df.fillna(value=pd.np.nan, inplace=True)
 
+#with pd.option_context('display.max_rows', None, 'display.max_columns', None):  # more options can be specified also
 # Sort dataframe by Endpoints and then print the first 20 rows
 #df.sort_values(by=['Endpoint'], ascending=False).head(20)
-
 # Or sort dataframe by Endpoints and then print it all.
 print(df.sort_values(by=['Endpoint'], ascending=False))
 
