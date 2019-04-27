@@ -185,10 +185,11 @@ print("========")
 print("+  MCP +")
 print("========")
 if MCPAdminState == "disabled" or MCP_PerEPG == "":
-	print("**** Warning: MCP is either Disabled Globally or the MCP Per Vlan option is not enabled. ****")
-	print("Go to Fabric > Access Policies > Global Policies > MCP Instance Policy default to enable.\n")
+  print("**** Warning: MCP is either Disabled Globally or the MCP Per Vlan option is not enabled. ****")
+  print("Go to Fabric > Access Policies > Global Policies > MCP Instance Policy default to enable.\n")
 else:
-	print("MCP state is", MCPAdminState, "and Per-EPG-Config is", MCP_PerEPG, "\n")  
+  print("Good job!")
+  print("MCP state is", MCPAdminState, "and Per-EPG-Config is", MCP_PerEPG, "\n")  
 
 print("=========================")
 print("+  Enforce Subnet Check +")
@@ -198,37 +199,41 @@ if IsEnforceActivated != "yes":
 	print("**** Warning: EnforceSubnetCheck not enabled. ****")
 	print("Go to System > System Settings > Fabric Wide Setting to enable.\n")
 else:
-	print("Enforce Subnet Check is enabled.\n") 
+  print("Good job!")
+  print("Enforce Subnet Check is enabled.\n") 
 
 print("===========================")
 print("+  Disable Remote EP Learn +")
 print("===========================")
 
 if IsDisXRLearnActivated != "yes":
-	print("**** Warning: Disable Remote EP Learn is not enabled. ****")
-	print("Go to System > System Settings > Fabric Wide Setting to enable.\n")
+  print("**** Warning: Disable Remote EP Learn is not enabled. ****")
+  print("Go to System > System Settings > Fabric Wide Setting to enable.\n")
 else:
-	print("Disable Remote EP Learn is enabled.\n")
+  print("Good job!")
+  print("Disable Remote EP Learn is enabled.\n")
 
 print("=======================")
 print("+  Domain Validation +")
 print("=======================")
 
 if IsDomValActivated != "yes":
-	print("**** Warning: Domain Validation is not enabled.")
-	print("Go to System > System Settings > Fabric Wide Setting to enable.\n")
+  print("**** Warning: Domain Validation is not enabled.")
+  print("Go to System > System Settings > Fabric Wide Setting to enable.\n")
 else:
-	print("Domain Validation is enabled.\n")
+  print("Good job!")
+  print("Domain Validation is enabled.\n")
 
 print("===========================")
 print("+  Uplink Port Tracking   +")
 print("===========================")
 
 if PortTrackAdminState !="on":
-	print("**** Warning: Uplink Port Tracking is not enabled.")
-	print("Go to System > System Settings > Port Tracking to enable.\n")
+  print("**** Warning: Uplink Port Tracking is not enabled.")
+  print("Go to System > System Settings > Port Tracking to enable.\n")
 else:
-	print("Uplink Port Tracking is", PortTrackAdminState, "\n")
+  print("Good job!")
+  print("Uplink Port Tracking is", PortTrackAdminState, "\n")
 
 #print("===========================")
 #print("+  Rogue EP Control       +")
@@ -238,37 +243,40 @@ else:
 #	print("**** Warning: Rogue EP Control is not enabled.")
 #	print("Go to System > System Settings > Endpoint Controls > Rogue EP Control to enable.\n")
 #else:
-#	print("Rogue EP Control is", RogueAdminState, "\n")
+#  print("Good job!")
+	#print("Rogue EP Control is", RogueAdminState, "\n")
 
 print("===========================")
 print("+  Internal Fabric BFD    +")
 print("===========================")
 
 if BFDAdminState !="enabled":
-	print("**** Warning: Internal Fabric BFD is not enabled.")
-	print("Go to Fabric > Fabric Policies > Policies > Interface > L3 Interface > default > BFD ISIS Policy Configuration to enable.\n")
+  print("**** Warning: Internal Fabric BFD is not enabled.")
+  print("Go to Fabric > Fabric Policies > Policies > Interface > L3 Interface > default > BFD ISIS Policy Configuration to enable.\n")
 else:
-	print("Internal Fabric BFD is", BFDAdminState, "\n")
+  print("Good job!")
+  print("Internal Fabric BFD is", BFDAdminState, "\n")
 
 print("===========================")
 print("+  Coop Policy            +")
 print("===========================")
 
 if CoopPolAdminState != "strict":
-	print("**** Warning: Your COOP policy is not set to strict.")
-	print("Go to System > System Settings > COOP Group to enable.\n")
+  print("**** Warning: Your COOP policy is not set to strict.")
+  print("Go to System > System Settings > COOP Group to enable.\n")
 else:
-	print("Coop Policy is", CoopPolAdminState, "\n")
+  print("Good job!")
+  print("Coop Policy is", CoopPolAdminState, "\n")
 
 print("===========================")
 print("+  Preserve COS Values    +")
 print("===========================")
 
 if PCOSAdminState != "dot1p-preserve":
-	print("**** Warning: Your fabric is not configured to preserve COS values.")
-	print("Go to Fabric > Access Policies > Policies > Global > QOS Class > Preserve COS to enable.\n")
+  print("**** Warning: Your fabric is not configured to preserve COS values.")
+  print("Go to Fabric > Access Policies > Policies > Global > QOS Class > Preserve COS to enable.\n")
 else:
-	print("Preserve COS policy is", PCOSAdminState, "\n")
+  print("Good job!")
+  print("Preserve COS policy is", PCOSAdminState, "\n")
 
 print('\n========================================================================')
-
