@@ -127,12 +127,12 @@ DNs = GetBD_DN()
 ### Create a tuple of BD names, BD DNs, and VRFs associated with each BD
 list_of_bds = zip(BDnames, DNs, vrfs)
 df_input = list(list_of_bds)
-df = pd.DataFrame(df_input, columns=("BDs", "DNs", "VRFs"))
+df = pd.DataFrame(df_input, columns=("BD Name", "DN", "VRF"))
 
 ## Use the option.context to override the default suppression of rows and print all rows
 with pd.option_context('display.max_rows', None, 'display.max_columns', None):  # more options can be specified also
 ## Sort the values based on VRFs
-    ef = df.sort_values(by=['VRFs'], ascending=True)
+    ef = df.sort_values(by=['VRF'], ascending=True)
 ## Removes the default numbered index column to the left
     print(ef.to_string(index=False))
 
