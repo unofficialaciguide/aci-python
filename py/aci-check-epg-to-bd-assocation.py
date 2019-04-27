@@ -2,9 +2,9 @@
 # coding: utf-8
 
 # Unofficial ACI Guide
-# Python 3 - Check all EPGss for their BD association
+# Python 3 - Check all EPGs for their BD association
 
-# This is a simple Python example demonstrating how to check for EPGss for their BD association 
+# This is a simple Python example demonstrating how to check for EPGs for their BD association 
 # This is boilerplate. Feel free to use in your own stuff.
 
 
@@ -66,7 +66,7 @@ def GetEPG_DN():
 
   return epg_list
 
-## Grab the EPG Names for all EPGs in the Fabric
+## Grab the EPG Names
 def GetEPG_Name():
   epg_class="node/class/fvAEPg.json"
   epg_url = base_url + epg_class
@@ -124,10 +124,10 @@ BDforEPGnames = GetBDforEPG()
 EPGnames = GetEPG_Name()
 DNs = GetEPG_DN()
 
-### Create a tuple of BD names, BD DNs, and BDforEPGnames associated with each BD
+### Create a tuple of EPG names, EPG DNs, and BD to EPG relationship associated with each EPG
 list_of_bds = zip(EPGnames, DNs, BDforEPGnames)
 df_input = list(list_of_bds)
-df = pd.DataFrame(df_input, columns=("BDs", "DNs", "BD for EPG"))
+df = pd.DataFrame(df_input, columns=("EPG Name", "DNs", "BD for EPG"))
 
 ## Use the option.context to override the default suppression of rows and print all rows
 with pd.option_context('display.max_rows', None, 'display.max_columns', None):  # more options can be specified also
