@@ -227,14 +227,36 @@ else:
   print("Uplink Port Tracking is following Best Practices.")
   print("Uplink Port Tracking is", PortTrackAdminState, "\n")
 
+if EPLoopAdminState !="enabled":
+  print("Endpoint Loop Detection:")
+  print("**** Warning: EP Loop Detection is not enabled.")
+  print("Go to System > System Settings > Endpoint Controls to enable.\n")
+elif EPLoopAdminState == "enabled" and EPLoopAction != "":
+  print("Endpoint Loop Detection:")
+  print("**** Warning: EP Loop Detection is enabled, but we recommend you disable the Actions which are currently set to", EPLoopAction)
+  print("Go to System > System Settings > Endpoint Controls to disable Actions.\n")
+else:
+  print("Endpoint Loop Detection:") 
+  print("Endpoint Loop Detection is following Best Practices.")
+  print("Endpoint Loop Detection is", PortTrackAdminState, "and Endpoint Actions are not configured.\n")
+
 #if RogueAdminState != "enabled":
-# print("Rogue Endpoint Control:")
-#	print("**** Warning: Rogue EP Control is not enabled.")
-#	print("Go to System > System Settings > Endpoint Controls > Rogue EP Control to enable.\n")
+#  print("Rogue Endpoint Control:")
+#  print("**** Warning: Rogue EP Control is not enabled.")
+#  print("Go to System > System Settings > Endpoint Controls > Rogue EP Control to enable.\n")
 #else:
-# print("Rogue Endpoint Control:")
-# print("Rogue Endpoint Control is following Best Practices.")
-	#print("Rogue EP Control is", RogueAdminState, "\n")
+#  print("Rogue Endpoint Control:")
+#  print("Rogue Endpoint Control is following Best Practices.")
+#  print("Rogue EP Control is", RogueAdminState, "\n")
+
+if IPAgingAdminState != "enabled":
+  print("IP Aging:")
+  print("**** Warning: IP Aging is not enabled.")
+  print("Go to System > System Settings > Endpoint Controls > IP Aging to enable.\n")
+else:
+  print("IP Aging:")
+  print("IP Aging is following Best Practices.")
+  print("IP Aging is", IPAgingAdminState, "\n")
 
 if BFDAdminState !="enabled":
   print("Internal Fabric BFD:")
