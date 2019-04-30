@@ -1,0 +1,6 @@
+py/config.py
+notebooks/config.py
+scripts/config.py
+
+notebooks/.ipynb*
+scripts/.ipynb*
