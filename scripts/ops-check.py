@@ -15,13 +15,16 @@
 #    - Tenant Endpoints by EPG
 # 3. Print report from the above information.
 
-# In[24]:
+# In[62]:
 
 
 # Import needed modules
 import requests
 import json
 import pandas as pd
+import os
+import sys
+
 
 
 # In[25]:
@@ -255,7 +258,7 @@ print(tenant_endpoints_summary)
 
 i = input("[C]ontinue with Full Report, or [Q]uit?")
 if i == "q" or i == "Q":
-    exit
+    sys.exit()
 
 
 # In[60]:
