@@ -2,9 +2,9 @@
 # coding: utf-8
 
 # Unofficial ACI Guide
-# Python 3 - Get Tenants Example
+# Python 3 - Get AEPs Example
 
-# This is a simple Python example demonstrating how to list all tenants in a fabric.  
+# This is a simple Python example demonstrating how to list all AEPs in a fabric.  
 # This is boilerplate. Feel free to use in your own stuff.
 
 
@@ -40,34 +40,34 @@ requests.packages.urllib3.disable_warnings()
 s = requests.session()
 s.post(auth_url, json=auth_data, verify=False)
 
-tenant_class="node/class/fvTenant.json"
-tenant_url = base_url + tenant_class
+AEP_class="node/class/infraAttEntityP.json"
+AEP_url = base_url + AEP_class
 
-tenants = s.get(tenant_url, verify=False)
-s_out = tenants.json()
+AEPs = s.get(AEP_url, verify=False)
+s_out = AEPs.json()
+#print(s_out)
 
 # Uncomment to print full output.
 #print(json.dumps(s_out, indent=4, sort_keys=True))
 
 
-# Let's get all our tenants now.
+# Let's get all our AEPs now.
 # Start with an empty list.
-tenant_list = []
+AEP_list = []
 count = 0
 
+AEP_out_list = s_out['imdata']
 
-tn_out_list = s_out['imdata']
-for tenant in tn_out_list:
-    # print(tenant)
-    dn = tenant['fvTenant']['attributes']['dn']
+for AEP in AEP_out_list:
+   # print(AEP)
+    dn = AEP['infraAttEntityP']['attributes']['dn']
+    #print(dn)
     split_dn = dn.split("/")
+    AEP_list.append(dn)
     count = count + 1
-    tenant_list.append(split_dn[1])
-    
-print("\nTenants: ")
-print('==========')
-[print(t[3:]) for t in tenant_list]
-print('==========')
 
-print('\nThere are', count, 'Tenants')
-
+print("\nAEPs in the Fabric: ")
+print('====================')
+[print(Int) for Int in AEP_list]
+print('====================')
+print('\nThere are', count, 'AEPs')

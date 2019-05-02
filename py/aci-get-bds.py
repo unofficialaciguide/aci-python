@@ -2,9 +2,9 @@
 # coding: utf-8
 
 # Unofficial ACI Guide
-# Python 3 - Get Tenants Example
+# Python 3 - Get bds Example
 
-# This is a simple Python example demonstrating how to list all tenants in a fabric.  
+# This is a simple Python example demonstrating how to list all bds in a fabric.  
 # This is boilerplate. Feel free to use in your own stuff.
 
 
@@ -40,34 +40,32 @@ requests.packages.urllib3.disable_warnings()
 s = requests.session()
 s.post(auth_url, json=auth_data, verify=False)
 
-tenant_class="node/class/fvTenant.json"
-tenant_url = base_url + tenant_class
+bd_class="node/class/fvBD.json"
+bd_url = base_url + bd_class
 
-tenants = s.get(tenant_url, verify=False)
-s_out = tenants.json()
+bds = s.get(bd_url, verify=False)
+s_out = bds.json()
+#print(s_out)
 
 # Uncomment to print full output.
 #print(json.dumps(s_out, indent=4, sort_keys=True))
 
 
-# Let's get all our tenants now.
+# Let's get all our bds now.
 # Start with an empty list.
-tenant_list = []
+bd_list = []
 count = 0
 
+bd_out_list = s_out['imdata']
 
-tn_out_list = s_out['imdata']
-for tenant in tn_out_list:
-    # print(tenant)
-    dn = tenant['fvTenant']['attributes']['dn']
+for bd in bd_out_list:
+    dn = bd['fvBD']['attributes']['dn']
     split_dn = dn.split("/")
+    bd_list.append(dn)
     count = count + 1
-    tenant_list.append(split_dn[1])
-    
-print("\nTenants: ")
-print('==========')
-[print(t[3:]) for t in tenant_list]
-print('==========')
 
-print('\nThere are', count, 'Tenants')
-
+print("\nBDs in the Fabric: ")
+print('====================')
+[print(b) for b in bd_list]
+print('====================')
+print('\nThere are', count, 'BDs')

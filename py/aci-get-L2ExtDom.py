@@ -2,9 +2,9 @@
 # coding: utf-8
 
 # Unofficial ACI Guide
-# Python 3 - Get Tenants Example
+# Python 3 - Get L2ExtDoms Example
 
-# This is a simple Python example demonstrating how to list all tenants in a fabric.  
+# This is a simple Python example demonstrating how to list all L2ExtDoms in a fabric.  
 # This is boilerplate. Feel free to use in your own stuff.
 
 
@@ -40,34 +40,34 @@ requests.packages.urllib3.disable_warnings()
 s = requests.session()
 s.post(auth_url, json=auth_data, verify=False)
 
-tenant_class="node/class/fvTenant.json"
-tenant_url = base_url + tenant_class
+L2ExtDom_class="node/class/l2extDomP.json"
+L2ExtDom_url = base_url + L2ExtDom_class
 
-tenants = s.get(tenant_url, verify=False)
-s_out = tenants.json()
+L2ExtDoms = s.get(L2ExtDom_url, verify=False)
+s_out = L2ExtDoms.json()
+#print(s_out)
 
 # Uncomment to print full output.
 #print(json.dumps(s_out, indent=4, sort_keys=True))
 
 
-# Let's get all our tenants now.
+# Let's get all our L2ExtDoms now.
 # Start with an empty list.
-tenant_list = []
+L2ExtDom_list = []
 count = 0
 
+L2ExtDom_out_list = s_out['imdata']
 
-tn_out_list = s_out['imdata']
-for tenant in tn_out_list:
-    # print(tenant)
-    dn = tenant['fvTenant']['attributes']['dn']
+for L2ExtDom in L2ExtDom_out_list:
+   # print(L2ExtDom)
+    dn = L2ExtDom['l2extDomP']['attributes']['dn']
+    #print(dn)
     split_dn = dn.split("/")
+    L2ExtDom_list.append(dn)
     count = count + 1
-    tenant_list.append(split_dn[1])
-    
-print("\nTenants: ")
-print('==========')
-[print(t[3:]) for t in tenant_list]
-print('==========')
 
-print('\nThere are', count, 'Tenants')
-
+print("\nL2ExtDoms in the Fabric: ")
+print('====================')
+[print(l2) for l2 in L2ExtDom_list]
+print('====================')
+print('\nThere are', count, 'L2 External Domains')

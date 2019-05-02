@@ -2,9 +2,9 @@
 # coding: utf-8
 
 # Unofficial ACI Guide
-# Python 3 - Get Tenants Example
+# Python 3 - Get PhysDoms Example
 
-# This is a simple Python example demonstrating how to list all tenants in a fabric.  
+# This is a simple Python example demonstrating how to list all PhysDoms in a fabric.  
 # This is boilerplate. Feel free to use in your own stuff.
 
 
@@ -40,34 +40,34 @@ requests.packages.urllib3.disable_warnings()
 s = requests.session()
 s.post(auth_url, json=auth_data, verify=False)
 
-tenant_class="node/class/fvTenant.json"
-tenant_url = base_url + tenant_class
+PhysDom_class="node/class/physDomP.json"
+PhysDom_url = base_url + PhysDom_class
 
-tenants = s.get(tenant_url, verify=False)
-s_out = tenants.json()
+PhysDoms = s.get(PhysDom_url, verify=False)
+s_out = PhysDoms.json()
+#print(s_out)
 
 # Uncomment to print full output.
 #print(json.dumps(s_out, indent=4, sort_keys=True))
 
 
-# Let's get all our tenants now.
+# Let's get all our PhysDoms now.
 # Start with an empty list.
-tenant_list = []
+PhysDom_list = []
 count = 0
 
+PhysDom_out_list = s_out['imdata']
 
-tn_out_list = s_out['imdata']
-for tenant in tn_out_list:
-    # print(tenant)
-    dn = tenant['fvTenant']['attributes']['dn']
+for PhysDom in PhysDom_out_list:
+   # print(PhysDom)
+    dn = PhysDom['physDomP']['attributes']['dn']
+    #print(dn)
     split_dn = dn.split("/")
+    PhysDom_list.append(dn)
     count = count + 1
-    tenant_list.append(split_dn[1])
-    
-print("\nTenants: ")
-print('==========')
-[print(t[3:]) for t in tenant_list]
-print('==========')
 
-print('\nThere are', count, 'Tenants')
-
+print("\nPhysDoms in the Fabric: ")
+print('====================')
+[print(b) for b in PhysDom_list]
+print('====================')
+print('\nThere are', count, 'PhysDoms')
