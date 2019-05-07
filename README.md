@@ -16,3 +16,5 @@ Task-based code samples written for the APIC controller. Includes lots of explan
 **/py**  
 Using code from /notebooks, these are some boilerplate Python you or your team can incorporate into your own scripts.
 
+**/scripts**
+Using code from the /notebooks and /py directories, example ops scripts are presented. 
