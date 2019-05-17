@@ -69,7 +69,7 @@ def GetVRFforBDs():
       ## If there is no VRF association found, alert on it!
       if vrf == "":
         print(bd, "has no VRF associated with it.")
-        NoBP_count = NoVRF_count + 1
+        NoVRF_count = NoVRF_count + 1
       else:
         continue
   ## Print all good message if no issues are found    
