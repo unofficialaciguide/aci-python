@@ -276,13 +276,13 @@ else:
   print("Coop Policy mode is following Best Practices.")
   print("Coop Policy is", CoopPolAdminState, "\n")
 
-if PCOSAdminState != "dot1p-preserve":
-  print("Preserve COS:")
-  print("**** Warning: Your fabric is not configured to preserve COS values.")
-  print("Go to Fabric > Access Policies > Policies > Global > QOS Class > Preserve COS to enable.\n")
-else:
-  print("Preserve COS:")  
-  print("Preserve COS setting is following Best Practices.")
-  print("Preserve COS policy is", PCOSAdminState, "\n")
+#if PCOSAdminState != "dot1p-preserve":
+#  print("Preserve COS:")
+#  print("**** Warning: Your fabric is not configured to preserve COS values.")
+#  print("Go to Fabric > Access Policies > Policies > Global > QOS Class > Preserve COS to enable.\n")
+#else:
+#  print("Preserve COS:")  
+#  print("Preserve COS setting is following Best Practices.")
+#  print("Preserve COS policy is", PCOSAdminState, "\n")
 
 print('\n========================================================================')
